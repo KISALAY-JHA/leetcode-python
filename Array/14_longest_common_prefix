@@ -1,0 +1,29 @@
+# LeetCode 14 - Longest Common Prefix
+# https://leetcode.com/problems/longest-common-prefix/
+# Difficulty: Easy
+
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        # If the list is empty, return an empty string
+        if not strs:
+            return ""
+
+        # Store the common prefix
+        prefix = ""
+
+        # Loop up to the length of the shortest word
+        for i in range(min(len(word) for word in strs)):
+            # Take the current character from the first word
+            current = strs[0][i]
+
+            # Compare this character with every word
+            for word in strs:
+                # If any character is different, return the prefix found so far
+                if word[i] != current:
+                    return prefix
+
+            # If all characters matched, add it to the prefix
+            prefix += current
+
+        # Return the complete common prefix
+        return prefix
