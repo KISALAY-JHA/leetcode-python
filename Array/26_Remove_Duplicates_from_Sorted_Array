@@ -1,0 +1,14 @@
+# LeetCode 26 - Remove Duplicates from Sorted Array
+# https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+# Difficulty: Easy
+
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        count=0
+        k=1
+        for i in range(len(nums)-1):
+            if nums[i] != nums[i+1]:
+                k += 1
+                count+= 1
+                nums[count]=nums[i+1] 
+        return k
