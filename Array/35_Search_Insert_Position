@@ -1,0 +1,21 @@
+# LeetCode #35 - Search Insert Position
+# https://leetcode.com/problems/search-insert-position/
+#
+# Difficulty: Easy
+# Algorithm: Binary Search
+# Time Complexity: O(log n)
+# Space Complexity: O(1)
+
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        Left = 0
+        Right = len(nums) - 1
+        while Left <= Right:
+            mid = (Left + Right) // 2
+            if target == nums[mid]:
+                return mid
+            elif target < nums[mid]:
+                Right = mid - 1
+            else:
+                Left = mid + 1
+        return Left
