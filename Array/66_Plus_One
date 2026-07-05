@@ -1,0 +1,28 @@
+# LeetCode #66 - Plus One
+# https://leetcode.com/problems/plus-one/
+#
+# Difficulty: Easy
+# Algorithm: Simulation
+# Time Complexity: O(n)
+# Space Complexity: O(1)
+
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        # Traverse the digits from right to left
+        for i in range(len(digits) - 1, -1, -1):
+
+            # If the current digit is less than 9,
+            # increment it and return the result.
+            if digits[i] < 9:
+                digits[i] += 1
+                return digits
+
+            # If the digit is 9, it becomes 0
+            # and the carry moves to the left.
+            digits[i] = 0
+
+        # If every digit was 9,
+        # insert 1 at the beginning.
+        digits.insert(0, 1)
+
+        return digits
